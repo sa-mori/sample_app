@@ -11,6 +11,7 @@ gem 'turbolinks',   '5.0.1'
 gem 'jbuilder',     '2.6.1'
 gem 'rails-ujs'
 gem 'therubyracer', platforms: :ruby
+gem 'bcrypt',         '3.1.11'
 
 
 group :development, :test do
