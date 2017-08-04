@@ -17,4 +17,20 @@ class UsersEditTest < ActionDispatch::IntegrationTest
     assert_template 'users/edit'
     assert_select 'div.alert-danger'
   end
+
+  test "successful edit" do
+    get edit_user_path(@user)
+    assert_template 'users/edit'
+    patch user_path(@user), params: { user: { name:  name,
+                                              email: email,
+                                              password:  "",
+                                              password_confirmation: "" } }
+    assert_not flash.emtpy?
+    assert_redirect_to @user
+    @user.reload
+    assert_equal name, @user.name
+    assert_equal email, @user.email
+  end
+
+
 end
