@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   # 編集される前にログイン確認
-  before_action :logged_in_user, only: [:edit, :update]
+  before_action :logged_in_user, only: [:index, :edit, :update]
 
   # 編集される前に対象ユーザか確認
   before_action :correct_user, only: [:edit, :update]
@@ -36,6 +36,10 @@ class UsersController < ApplicationController
     else
       render 'edit'
     end
+  end
+
+  def index
+    @users = User.all
   end
 
   private

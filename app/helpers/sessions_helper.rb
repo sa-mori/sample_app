@@ -56,6 +56,6 @@ module SessionsHelper
 
   # アクセスしようとしたURLを記憶する
   def store_location
-    session[:formwarding_url] = request.original_url if request.get?
+    session[:forwarding_url] = request.original_url if request.get?
   end
 end
