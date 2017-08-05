@@ -49,6 +49,8 @@ module SessionsHelper
  # 記憶したURLにリダイレクト
   def redirect_back_or(default)
     redirect_to(session[:forwarding_url] || default)
+    
+    # 消しておかないと次回ログイン時に転送されてしまうため。
     session.delete(:forwarding_url)
   end
 
